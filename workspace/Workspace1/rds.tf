@@ -39,7 +39,7 @@ resource "aws_db_instance" "default" {
   db_name                       = "mydb2"
   engine                        = "mysql"
   engine_version                = "5.7"
-  identifier                    = "research-rds"   
+  identifier                    = "research-rds2"   
   instance_class                = "db.t3.micro"
   network_type                  = "IPV4"
   port                          = "3306" 
