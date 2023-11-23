@@ -8,7 +8,9 @@ terraform {
 }
 
 provider "aws" {
-  region = "eu-west-2"  # Change this to your desired AWS region
+  region = "eu-west-2"
+  access_key = "AKIAX3LNWYOGIVRPHOXY"
+  secret_key = "9sHJCSQjMRbhwNrKy3YJC5Vni2GSAwPziovr5aUh"
 }
 
 resource "aws_elastic_beanstalk_application" "my_app" {
