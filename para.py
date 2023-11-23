@@ -13,8 +13,8 @@ def deploy_environment(workspace):
         os.chdir(os.path.join(script_dir, workspace))
         print(f"After chdir: {os.getcwd()}")
         # Run Terraform commands for deployment
-        subprocess.run(["terraform", "init", "-input=false"], check=True)
-        subprocess.run(["terraform", "apply", "-auto-approve", "-lock=false"], check=True)
+        subprocess.run(["terraform", "init", "-input=false"], check=True, shell=True)
+        subprocess.run(["terraform", "apply", "-auto-approve", "-lock=false"], check=True, shell=True)
     except Exception as e:
         print(f"Error deploying workspace {workspace}: {e}")
 
