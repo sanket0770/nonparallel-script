@@ -14,7 +14,7 @@ provider "aws" {
 }
 
 resource "aws_elastic_beanstalk_application" "my_app" {
-  name = "Non-parallel-research-ElasticBeanstalkApp"
+  name = "non-parallel-research-ElasticBeanstalkApp"
 }
 
 resource "aws_elastic_beanstalk_application_version" "default" {
@@ -26,7 +26,7 @@ resource "aws_elastic_beanstalk_application_version" "default" {
 }
 
 resource "aws_elastic_beanstalk_environment" "my_environment" {
-  name        = "Non-parallel-research-Environment"
+  name        = "non-parallel-research-Environment"
   application = aws_elastic_beanstalk_application.my_app.name
   solution_stack_name = "64bit Amazon Linux 2023 v4.0.6 running Python 3.11"
   version_label = aws_elastic_beanstalk_application_version.default.name
