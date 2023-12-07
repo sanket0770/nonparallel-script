@@ -28,7 +28,7 @@ resource "aws_elastic_beanstalk_application_version" "default" {
 resource "aws_elastic_beanstalk_environment" "my_environment" {
   name        = "MyEnvironmentsanket0001112"
   application = aws_elastic_beanstalk_application.my_app.name
-  solution_stack_name = "64bit Amazon Linux 2 v3.5.9 running Python 3.8"
+  solution_stack_name = "64bit Amazon Linux 2023 v4.0.6 running Python 3.11"
   version_label = aws_elastic_beanstalk_application_version.default.name
 
   setting {
