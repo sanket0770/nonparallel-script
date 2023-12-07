@@ -15,7 +15,7 @@ provider "aws" {
 
 
 resource "aws_s3_bucket" "b" {
- bucket = "mytftestbucket0000000011111111112"
+ bucket = "Non-parallel-research-s3-bucket"
 }
 
 resource "aws_s3_bucket_public_access_block" "b" {
@@ -39,14 +39,14 @@ resource "aws_s3_bucket_policy" "b" {
       "Effect": "Allow",
       "Principal": "*",
       "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::mytftestbucket0000000011111111112/*"
+      "Resource": "arn:aws:s3:::Non-parallel-research-s3-bucket/*"
    },
   {
     "Sid": "GrantAnonymousReadPermissions1",
       "Effect": "Allow",
       "Principal": "*",
       "Action": "s3:PutObject",
-      "Resource": "arn:aws:s3:::mytftestbucket0000000011111111112/*"
+      "Resource": "arn:aws:s3:::Non-parallel-research-s3-bucket/*"
   }
 ]
 }
