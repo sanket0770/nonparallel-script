@@ -16,7 +16,7 @@ provider "aws" {
 
 
 resource "aws_security_group" "mysql_sg" {
-  name        = "parallel-mysql-sg2"
+  name        = "Non-parallel-mysql-sg2"
   description = "Security group for MySQL on port 3306"
 
   ingress {
@@ -39,7 +39,7 @@ resource "aws_db_instance" "default" {
   db_name                       = "mydb2"
   engine                        = "mysql"
   engine_version                = "5.7"
-  identifier                    = "parallel-research-rds2"   
+  identifier                    = "Non-parallel-research-rds2"   
   instance_class                = "db.t3.micro"
   network_type                  = "IPV4"
   port                          = "3306" 
