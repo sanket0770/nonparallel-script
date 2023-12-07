@@ -22,7 +22,7 @@ resource "aws_elastic_beanstalk_application_version" "default" {
   application = aws_elastic_beanstalk_application.my_app.name
   description = "application version created by terraform"
   bucket      = "recipebook-app-bucket"
-  key         = "app.zip"
+  key         = "Parallel.zip"
 }
 
 resource "aws_elastic_beanstalk_environment" "my_environment" {
