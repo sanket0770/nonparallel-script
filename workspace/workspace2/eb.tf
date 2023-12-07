@@ -17,11 +17,20 @@ resource "aws_elastic_beanstalk_application" "my_app" {
   name = "MyElasticBeanstalkAppsanket0001112"
 }
 
+resource "aws_elastic_beanstalk_application_version" "default" {
+  name        = "tf-test-version-label"
+  application = aws_elastic_beanstalk_application.my_app.name
+  description = "application version created by terraform"
+  bucket      = "recipebook-app-bucket"
+  key         = "app.zip"
+}
+
 resource "aws_elastic_beanstalk_environment" "my_environment" {
   name        = "MyEnvironmentsanket0001112"
   application = aws_elastic_beanstalk_application.my_app.name
   solution_stack_name = "64bit Amazon Linux 2 v3.5.9 running Python 3.8"
-  
+  version_label = aws_elastic_beanstalk_application_version.default.name
+
   setting {
     namespace = "aws:autoscaling:launchconfiguration"
     name      = "InstanceType"
@@ -39,11 +48,11 @@ resource "aws_elastic_beanstalk_environment" "my_environment" {
     name      = "PYTHONPATH"
     value     = "/opt/python/current/app:/opt/python/run/venv/lib/python3.8/site-packages"
   }
-   setting {
+  
+  setting {
       namespace = "aws:autoscaling:launchconfiguration"
       name      = "IamInstanceProfile"
       value     = "aws-elasticbeanstalk-ec2-role"
     }
-}
 
-# You can add additional resources like AWS RDS, S3, etc., based on your application requirements.
+}
